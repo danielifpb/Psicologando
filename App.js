@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
-import {MyStack} from './src/routes/StackNavigator';
+import {MyDrawer} from './src/routes/DrawerNavigator';
 
 import {Rajdhani_500Medium, Rajdhani_700Bold} from '@expo-google-fonts/rajdhani';
 import AppLoading from 'expo-app-loading';
@@ -23,7 +23,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent 
         />
-      <MyStack />
+      <MyDrawer />
     </>
     
   );

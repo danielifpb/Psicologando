@@ -15,7 +15,7 @@ export function Header(props) {
     return (
         <View style={styles.container}>
 
-            <BorderlessButton >
+            <BorderlessButton onPress={()=> navigation.dispatch(DrawerActions.toggleDrawer())}>
                 <Octicons
                     name="three-bars"
                     size={24}

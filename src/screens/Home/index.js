@@ -51,7 +51,7 @@ export function Home() {
                 <Text style={styles.title}>Frase Motivacional</Text>
                 
 
-                <Text style={styles.subtitle} onPress={() => navigation.navigate('SupportMaterials')}>
+                <Text style={styles.subtitle}>
                     {phrase[randomPhrase]}
                 </Text>
             

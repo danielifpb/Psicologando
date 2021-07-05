@@ -13,14 +13,23 @@ import { styles } from './styles';
 export function SupportMaterials() {
     const navigation = useNavigation();
 
-    const randomImage = Math.floor(Math.random() * 7);
+    
 
     
     return (
-        <View style={{flex: 1}}>
+        <View style={styles.container}>
             <Header 
                 headerTitle="Materiais de Apoio" 
-                
+                headerIcon={
+                    <BorderlessButton onPress={()=> navigation.goBack()}>
+                        <Feather
+                            name="chevron-left"
+                            size={24}
+                            color={"black"}
+
+                        />
+                    </BorderlessButton>
+                }
             />
 
             <MyTab/>
