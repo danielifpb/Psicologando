@@ -28,9 +28,10 @@ export function MyTab() {
             activeTintColor: '#FFFFFF',
             inactiveTintColor: '#8F939A',
             labelStyle:{
-                fontSize:20,
+                fontSize:26,
                 fontFamily: theme.fonts.title,
-                textTransform: 'none'       
+                textTransform: 'none',
+                       
             },
             indicatorStyle:{
                 backgroundColor:'#424345'
