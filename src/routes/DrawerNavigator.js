@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons  } from '@expo/vector-icons';
 
@@ -17,9 +18,18 @@ import { Diary } from '../screens/Diary';
 
 
 
-
+import { Details } from '../screens/Details';
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
+const SupportScreens = ()=>(
+  <Stack.Navigator headerMode="none" >
+    <Stack.Screen name="SupportMaterials" component={SupportMaterials} />
+    <Stack.Screen name="Details" component={Details} />
+  </Stack.Navigator>
+
+)
 
 
 export function MyDrawer() {
@@ -68,8 +78,8 @@ export function MyDrawer() {
               }}
             />
             <Drawer.Screen 
-              name="SupportMaterials" 
-              component={SupportMaterials} 
+              name="SupportScreens" 
+              component={SupportScreens} 
               options={{title:"Materiais de Apoio",drawerIcon: ({focused})=>(
                 <Ionicons  name="documents-outline" size={20} color={focused ? primary : secondary} />
               )
@@ -112,6 +122,7 @@ export function MyDrawer() {
               
               }}
             />
+            
             
         </Drawer.Navigator>
     </NavigationContainer>

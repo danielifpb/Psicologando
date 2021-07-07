@@ -15,29 +15,30 @@ export function Header(props) {
     return (
         <View style={styles.container}>
 
-            <BorderlessButton onPress={()=> navigation.dispatch(DrawerActions.toggleDrawer())}>
-                <Octicons
-                    name="three-bars"
-                    size={24}
-                    color={secondary}
-            />
-
-            </BorderlessButton>
-                
-            <Text style={styles.title}>
-                {props.headerTitle}
-            </Text>
-
-            {
+            {       
                 props.headerIcon 
                 ?
                 <View>
                     { props.headerIcon }
                 </View>
                 :
-                <View style={{width:24}}/>
+                <BorderlessButton onPress={()=> navigation.dispatch(DrawerActions.toggleDrawer())}>
+                    <Octicons
+                        name="three-bars"
+                        size={24}
+                        color={secondary}
+                />
 
+                </BorderlessButton>
             }
+
+                
+            <Text style={styles.title}>
+                {props.headerTitle}
+            </Text>
+
+    
+            <View style={{width:24}}/>
 
             
         </View>

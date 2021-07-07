@@ -10,26 +10,13 @@ import { MyTab } from '../../routes/TabNavigator';
 
 import { styles } from './styles'; 
  
-export function SupportMaterials() {
-    const navigation = useNavigation();
-
-    
+export function SupportMaterials() {   
 
     
     return (
         <View style={styles.container}>
             <Header 
                 headerTitle="Materiais de Apoio" 
-                headerIcon={
-                    <BorderlessButton onPress={()=> navigation.goBack()}>
-                        <Feather
-                            name="chevron-left"
-                            size={24}
-                            color={"black"}
-
-                        />
-                    </BorderlessButton>
-                }
             />
 
             <MyTab/>

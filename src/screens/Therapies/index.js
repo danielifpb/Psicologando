@@ -1,16 +1,31 @@
 import React from 'react';
-import { View } from 'react-native'; 
+import { View, Text, Button } from 'react-native'; 
+import {useNavigation} from '@react-navigation/native';
+import { Header } from '../../components/Header';
+import { BorderlessButton } from 'react-native-gesture-handler';
+import { Feather  } from '@expo/vector-icons';
  
-import { styles } from './styles';
 
-import {Header} from '../../components/Header';
+import {MyTabTherapies} from '../../components/Tab';
+
+import { styles } from './styles'; 
  
 export function Therapies() {
+    const navigation = useNavigation();
+
+    
+
+    
     return (
         <View style={styles.container}>
-             <Header 
-                headerTitle="Terapias adjuvantes" 
+            <Header 
+                headerTitle="Terapias Adjuvantes" 
             />
+
+            <MyTabTherapies/>
+
+            
+            
         </View>
     );
 }

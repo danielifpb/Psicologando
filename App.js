@@ -20,7 +20,7 @@ export default function App() {
     <>
       <StatusBar 
           barStyle="dark-content"
-          backgroundColor="transparent"
+          backgroundColor="#EEC802"
           translucent 
         />
       <MyDrawer />

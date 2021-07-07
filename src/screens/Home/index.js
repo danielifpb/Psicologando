@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, Image } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+
 
 import {Header} from '../../components/Header';
 
@@ -16,7 +16,7 @@ import Image6 from '../../assets/imageHome/image6.jpg';
 
  
 export function Home() {
-    const navigation = useNavigation();
+    
 
     const randomImage = Math.floor(Math.random() * 7);
     const image = [Image0,Image1,Image2,Image3,Image4,Image5,Image6];
