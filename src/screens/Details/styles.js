@@ -16,10 +16,18 @@ export const styles = StyleSheet.create({
         color: theme.colors.secondary,
         maxWidth: 234
     },
-    image:{
+    imageHeight:{
         marginTop: 6,
         width: 135,
         height:195,
+        borderRadius: 5,
+        borderColor: 'black',
+        borderWidth: 5
+    },
+    imageWidth:{
+        marginTop: 6,
+        width: 300,
+        height:187,
         borderRadius: 5,
         borderColor: 'black',
         borderWidth: 5
@@ -38,6 +46,14 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.subtitle,
         fontSize: 18,
 
+    },
+    great:{
+        marginTop:50,
+        fontFamily: theme.fonts.title,
+        fontSize:40,
+        textAlign: 'center',
+        color: theme.colors.secondary,
+        maxWidth: 234
     }
     
 });
