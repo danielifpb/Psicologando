@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Projeto de Expansão IFPB ",
+    "githubUrl": "https://github.com/danielifpb/Psicologando"
   }
 }
