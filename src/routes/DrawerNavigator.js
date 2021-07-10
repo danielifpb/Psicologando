@@ -15,6 +15,7 @@ import { MotivationPanel } from '../screens/MotivationPanel';
 import { Professionals } from '../screens/Professionals';
 import { Therapies } from '../screens/Therapies';
 import { Diary } from '../screens/Diary';
+import { DetailsProf } from '../components/DetailsProf';
 
 
 
@@ -30,6 +31,14 @@ const SupportScreens = ()=>(
   </Stack.Navigator>
 
 )
+
+const ProfScreens = ()=>(
+  <Stack.Navigator headerMode="none" >
+    <Stack.Screen name="Professionals" component={Professionals} />
+    <Stack.Screen name="DetailsProf" component={DetailsProf} />
+  </Stack.Navigator>
+)
+
 
 
 export function MyDrawer() {
@@ -96,8 +105,8 @@ export function MyDrawer() {
               }}
             />
             <Drawer.Screen 
-              name="Professionals" 
-              component={Professionals} 
+              name="ProfScreens" 
+              component={ProfScreens} 
               options={{title:"Profissionais e Clínicas",drawerIcon: ({focused})=>(
                 <Ionicons  name="medical-outline" size={20} color={focused ? primary : secondary} />
               )
