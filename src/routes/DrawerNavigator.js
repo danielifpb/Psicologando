@@ -16,7 +16,8 @@ import { Professionals } from '../screens/Professionals';
 import { Therapies } from '../screens/Therapies';
 import { Diary } from '../screens/Diary';
 import { DetailsProf } from '../components/DetailsProf';
-
+import {AddAlarm} from '../screens/MedicineAlarm/AddAlarm';
+import {EditAlarm} from '../screens/MedicineAlarm/EditAlarm';
 
 
 import { Details } from '../screens/Details';
@@ -36,6 +37,14 @@ const ProfScreens = ()=>(
   <Stack.Navigator headerMode="none" >
     <Stack.Screen name="Professionals" component={Professionals} />
     <Stack.Screen name="DetailsProf" component={DetailsProf} />
+  </Stack.Navigator>
+)
+
+const AlarmScreens = ()=>(
+  <Stack.Navigator headerMode="none" >
+    <Stack.Screen name="MedicineAlarm" component={MedicineAlarm} />
+    <Stack.Screen name="AddAlarm" component={AddAlarm} />
+    <Stack.Screen name="EditAlarm" component={EditAlarm} />
   </Stack.Navigator>
 )
 
@@ -78,8 +87,8 @@ export function MyDrawer() {
               
             />
             <Drawer.Screen 
-              name="MedicineAlarm" 
-              component={MedicineAlarm} 
+              name="AlarmScreens" 
+              component={AlarmScreens} 
               options={{title:"Alarme de Medicamentos",drawerIcon: ({focused})=>(
                 <Ionicons  name="alarm-outline" size={20} color={focused ? primary : secondary} />
               )

@@ -1,36 +1,37 @@
 import React from 'react';
 import { View, Text,FlatList,TouchableWithoutFeedback } from 'react-native'; 
+import { useNavigation } from '@react-navigation/native';
 import {Feather, Ionicons} from '@expo/vector-icons';
 import { FAB } from 'react-native-paper';
  
 import { styles } from './styles';
 
 import {Header} from '../../components/Header';
-import {ButtonAdd} from '../../components/ButtonAdd';
 import {ListDivider} from '../../components/ListDivider';
 
 const alarms = [
     {
         id: '0',
         title: 'Effexor',
-        hora: '19',
+        hour: '19',
         minute: '00',
     },
     {
         id: '1',
         title: 'Relax',
-        hora: '07',
+        hour: '07',
         minute: '00',
     },
     {
         id: '2',
         title: 'Diazepam',
-        hora: '23',
+        hour: '23',
         minute: '00',
     },
 ];
  
 export function MedicineAlarm() {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
              <Header 
@@ -53,13 +54,23 @@ export function MedicineAlarm() {
                                     <Text style={styles.title}>
                                         {item.title}
                                     </Text>
-                                    <Text style={styles.subtitle}>{item.hora}:{item.minute}</Text>
+                                    <Text style={styles.subtitle}>{item.hour}:{item.minute}</Text>
                                     
                                 </View>
 
                                 <View style={styles.icons}>
-                                    <Ionicons  name="ios-pencil" size={30} color="black"  style={{right: 5}}/>
-                                    <Ionicons  name="trash-outline" size={30} color="black" />
+                                    <Ionicons  
+                                        name="ios-pencil" 
+                                        size={30} 
+                                        color="black"  
+                                        style={{right: 5}} 
+                                        onPress={()=> navigation.navigate('EditAlarm', {
+                                            title: item.title, 
+                                            hour: item.hour,
+                                            minute: item.minute,
+                                        })}
+                                    />
+                                    <Ionicons  name="trash-outline" size={30} color="black" onPress={() => console.log(item.minute)} />
                                 </View>
                             </View>
                             
@@ -79,7 +90,7 @@ export function MedicineAlarm() {
                 color= 'black'
                 icon= 'plus'
                 
-                onPress={() => console.log('Pressed')}
+                onPress={() => navigation.navigate('AddAlarm')}
                 
             />
             

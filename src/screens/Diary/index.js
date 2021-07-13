@@ -6,7 +6,6 @@ import { FAB } from 'react-native-paper';
 import { styles } from './styles';
 
 import {Header} from '../../components/Header';
-import {ButtonAdd} from '../../components/ButtonAdd';
 import {ListDivider} from '../../components/ListDivider';
 
 const anotacions = [

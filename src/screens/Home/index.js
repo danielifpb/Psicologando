@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, Image } from 'react-native';
 
-import {ButtonAdd} from '../../components/ButtonAdd'
+
 
 
 import {Header} from '../../components/Header';
