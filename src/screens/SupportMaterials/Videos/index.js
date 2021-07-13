@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'; 
+import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native'; 
 import {useNavigation} from '@react-navigation/native';
 
 import { styles } from './styles';
@@ -19,64 +19,80 @@ export function Videos() {
 
     const videosObj = [
         { 
+            id: '0',
             name:'Ansiedade', 
             image: 6,
+            img:image0,
             title: 'Canal:',
             subtitle:'Minutos Psíquicos',
             model: 'Assistir',
             link: 'https://youtu.be/Tv0gJTBmVuc'
         },
         { 
+            id: '1',
             name:'Depressão', 
             image: 7,
+            img:image1,
             title: 'Canal:',
             subtitle:'Minutos Psíquicos',
             model: 'Assistir',
             link: 'https://youtu.be/T2XLwjy65LA' 
         },
         { 
+            id: '2',
             name:'Causas da Ansiedade', 
             image: 8,
+            img:image2,
             title: 'Canal:',
             subtitle:'Saúde da Mente',
             model: 'Assistir',
             link: 'https://youtu.be/tn0zqVKo0CM'
         },
         { 
+            id: '3',
             name:'Como tratar a ansiedade', 
             image: 9,
+            img:image3,
             title: 'Canal:',
             subtitle:'Saúde da Mente',
             model: 'Assistir',
             link: 'https://youtu.be/kxN6Va4etLw'
         },
         { 
+            id: '4',
             name:'Sintomas da crise de ansiedade', 
             image: 10,
+            img:image4,
             title: 'Canal:',
             subtitle:'Saúde da Mente',
             model: 'Assistir',
             link: 'https://youtu.be/Pmh9No4Mdts'
         },
         { 
+            id: '5',
             name:'Diferença entre pânico e ansiedade', 
             image: 11,
+            img:image5,
             title: 'Canal:',
             subtitle:'Saúde da Mente',
             model: 'Assistir',
             link: 'https://youtu.be/79T9NX0vhlg'
         },
         { 
+            id: '6',
             name:'Depressão', 
             image: 12,
+            img:image6,
             title: 'Canal:',
             subtitle:'Saúde da Mente',
             model: 'Assistir',
             link: 'https://youtu.be/AOAP11o7jNM'
         },
         { 
+            id: '7',
             name:'Diferença entre tristeza e depresão', 
             image: 13,
+            img:image7,
             title: 'Canal:',
             subtitle:'Saúde da Mente',
             model: 'Assistir',
@@ -86,293 +102,51 @@ export function Videos() {
 
     return (
         <View style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false}>
 
-                <View style={styles.content}>
-
-                <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[0].name, 
-                            image: videosObj[0].image,
-                            title: videosObj[0].title,
-                            subtitle: videosObj[0].subtitle,
-                            model: videosObj[0].model,
-                            link: videosObj[0].link
+            <FlatList 
+                data={videosObj}
+                keyExtractor={item=>item.id}
+                renderItem={({item})=>
+                    <View style={styles.content}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            onPress={()=> navigation.navigate('Details', {
+                                type: typeVideos,
+                                name: item.name, 
+                                image: item.image,
+                                title: item.title,
+                                subtitle: item.subtitle,
+                                model: item.model,
+                                link: item.link
                             })}
-                    >
-                        <Image 
-                            source={image0} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[0].name, 
-                            image: videosObj[0].image,
-                            title: videosObj[0].title,
-                            subtitle: videosObj[0].subtitle,
-                            model: videosObj[0].model,
-                            link: videosObj[0].link
+                        >
+                            <Image 
+                                source={item.img} 
+                                style={styles.image}
+                                
+                            />
+                        </TouchableOpacity>
+                        <Text 
+                            style={styles.title} 
+                            onPress={()=> navigation.navigate('Details', {
+                                type: typeVideos,
+                                name: item.name, 
+                                image: item.image,
+                                title: item.title,
+                                subtitle: item.subtitle,
+                                model: item.model,
+                                link: item.link
                             })}
+                        >
 
-                    >
-
-                        {videosObj[0].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[1].name, 
-                            image: videosObj[1].image,
-                            title: videosObj[1].title,
-                            subtitle: videosObj[1].subtitle,
-                            model: videosObj[1].model,
-                            link: videosObj[1].link
-                            })}
-                    >
-                        <Image 
-                            source={image1} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[1].name, 
-                            image: videosObj[1].image,
-                            title: videosObj[1].title,
-                            subtitle: videosObj[1].subtitle,
-                            model: videosObj[1].model,
-                            link: videosObj[1].link
-                            })}
-
-                    >
-
-                        {videosObj[1].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[2].name, 
-                            image: videosObj[2].image,
-                            title: videosObj[2].title,
-                            subtitle: videosObj[2].subtitle,
-                            model: videosObj[2].model,
-                            link: videosObj[2].link
-                            })}
-                    >
-                        <Image 
-                            source={image2} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[2].name, 
-                            image: videosObj[2].image,
-                            title: videosObj[2].title,
-                            subtitle: videosObj[2].subtitle,
-                            model: videosObj[2].model,
-                            link: videosObj[2].link
-                            })}
-
-                    >
-
-                        {videosObj[2].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[3].name, 
-                            image: videosObj[3].image,
-                            title: videosObj[3].title,
-                            subtitle: videosObj[3].subtitle,
-                            model: videosObj[3].model,
-                            link: videosObj[3].link
-                            })}
-                    >
-                        <Image 
-                            source={image3} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[3].name, 
-                            image: videosObj[3].image,
-                            title: videosObj[3].title,
-                            subtitle: videosObj[3].subtitle,
-                            model: videosObj[3].model,
-                            link: videosObj[3].link
-                            })}
-
-                    >
-
-                        {videosObj[3].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[4].name, 
-                            image: videosObj[4].image,
-                            title: videosObj[4].title,
-                            subtitle: videosObj[4].subtitle,
-                            model: videosObj[4].model,
-                            link: videosObj[4].link
-                            })}
-                    >
-                        <Image 
-                            source={image4} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[4].name, 
-                            image: videosObj[4].image,
-                            title: videosObj[4].title,
-                            subtitle: videosObj[4].subtitle,
-                            model: videosObj[4].model,
-                            link: videosObj[4].link
-                            })}
-
-                    >
-
-                        {videosObj[4].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[5].name, 
-                            image: videosObj[5].image,
-                            title: videosObj[5].title,
-                            subtitle: videosObj[5].subtitle,
-                            model: videosObj[5].model,
-                            link: videosObj[5].link
-                            })}
-                    >
-                        <Image 
-                            source={image5} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[5].name, 
-                            image: videosObj[5].image,
-                            title: videosObj[5].title,
-                            subtitle: videosObj[5].subtitle,
-                            model: videosObj[5].model,
-                            link: videosObj[5].link
-                            })}
-
-                    >
-
-                        {videosObj[5].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[6].name, 
-                            image: videosObj[6].image,
-                            title: videosObj[6].title,
-                            subtitle: videosObj[6].subtitle,
-                            model: videosObj[6].model,
-                            link: videosObj[6].link
-                            })}
-                    >
-                        <Image 
-                            source={image6} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[6].name, 
-                            image: videosObj[6].image,
-                            title: videosObj[6].title,
-                            subtitle: videosObj[6].subtitle,
-                            model: videosObj[6].model,
-                            link: videosObj[6].link
-                            })}
-
-                    >
-
-                        {videosObj[6].name}
-                    </Text>
-
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[7].name, 
-                            image: videosObj[7].image,
-                            title: videosObj[7].title,
-                            subtitle: videosObj[7].subtitle,
-                            model: videosObj[7].model,
-                            link: videosObj[7].link
-                            })}
-                    >
-                        <Image 
-                            source={image7} 
-                            style={styles.image}
-                            
-                        />
-                    </TouchableOpacity>
-                    <Text 
-                        style={styles.title} 
-                        onPress={()=> navigation.navigate('Details', {
-                            type: typeVideos,
-                            name: videosObj[7].name, 
-                            image: videosObj[7].image,
-                            title: videosObj[7].title,
-                            subtitle: videosObj[7].subtitle,
-                            model: videosObj[7].model,
-                            link: videosObj[7].link
-                            })}
-
-                    >
-
-                        {videosObj[7].name}
-                    </Text>  
-                    
-                    <View style={{marginTop:50}} />
-                </View>
-            </ScrollView>
+                            {item.name}
+                        </Text>
+                    </View>
+                } 
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{paddingBottom: 50}}
+            />
+            
         </View>
     );
 }
