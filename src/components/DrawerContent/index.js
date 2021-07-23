@@ -21,6 +21,7 @@ export function DrawerContent(props) {
 
             <Drawer.Section style={styles.section}>
                 <DrawerItemList {...props}/>
+                <View style={{marginTop:100}}></View>
             </Drawer.Section>
 
         </View>
