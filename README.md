@@ -1,17 +1,15 @@
 <div align="center">
-
-  <div>
     <img
       src="assets/logo.png"
       alt="Logo Psicologando"
       width="360"
     />
-  </div>
+  
 
   <br>
 
   Aplicativo mobile de apoio à saúde emocional, autocuidado e organização da rotina.
-
+</div>
 
 ## Sobre o projeto
 
