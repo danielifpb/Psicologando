@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src/assets/icon.png" alt="Logo do Psicologando" width="220" />
+  <img src="src/adaptive-icon.png" alt="Logo do Psicologando" width="220" />
 
   # Psicologando
 
