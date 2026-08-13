@@ -2,10 +2,9 @@
 
   <div>
     <img
-      src="src/assets/logo.png"
+      src="assets/logo.png"
       alt="Logo Psicologando"
       width="360"
-      style="background-color:#EEC802; border-radius:50%; padding:35px;"
     />
   </div>
 
