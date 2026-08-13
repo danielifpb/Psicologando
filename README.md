@@ -105,15 +105,17 @@ Não há conta de usuário, sincronização em nuvem ou servidor nesta versão. 
 - Configuração de splash screen personalizada com a identidade visual do projeto.
 - Configuração de build Android instalável por meio do EAS Build.
 
-## Demonstração Android
+## Download para Android
 
-<div align="center">
-  <a href="https://expo.dev/artifacts/eas/dtPrfyqO02bk2-Z_8CYWFicEl7UphvzITpQrrrLQf_0.apk">
-    <strong>Baixar APK do Psicologando</strong>
+Uma versão instalável do Psicologando está disponível através do GitHub Releases.
+
+<a href="https://github.com/danielifpb/Psicologando/releases/tag/Psicologando">
+    <strong> Baixar Psicologando para Android</strong>
   </a>
-</div>
 
-> O link atual é um artefato temporário do EAS e expira em **27/08/2026**. Em uma publicação definitiva, ele deverá ser substituído pelo APK hospedado em uma GitHub Release.
+>>A instalação é realizada através de um arquivo APK. Como o aplicativo não é distribuído pela Google Play Store, o Android poderá solicitar autorização para instalar aplicativos provenientes do navegador ou gerenciador de arquivos utilizado.
+
+As versões publicadas do aplicativo podem ser consultadas na página de Releases do projeto.
 
 ## Status do projeto
 
