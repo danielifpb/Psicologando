@@ -2,7 +2,7 @@
     <img
       src="assets/logo.png"
       alt="Logo Psicologando"
-      width="360"
+      width="720"
     />
   
 
