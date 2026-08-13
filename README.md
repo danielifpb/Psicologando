@@ -1,10 +1,18 @@
 <div align="center">
-  <img src="assets/adaptive-icon.png" alt="Logo do Psicologando" width="220" />
 
-  # Psicologando
+  <div>
+    <img
+      src="src/assets/logo.png"
+      alt="Logo Psicologando"
+      width="360"
+      style="background-color:#EEC802; border-radius:50%; padding:35px;"
+    />
+  </div>
+
+  <br>
 
   Aplicativo mobile de apoio à saúde emocional, autocuidado e organização da rotina.
-</div>
+
 
 ## Sobre o projeto
 
@@ -109,11 +117,13 @@ Não há conta de usuário, sincronização em nuvem ou servidor nesta versão. 
 
 Uma versão instalável do Psicologando está disponível através do GitHub Releases.
 
-<a href="https://github.com/danielifpb/Psicologando/releases/tag/Psicologando">
-    <strong> Baixar Psicologando para Android</strong>
+<div align="center">
+  <a href="https://github.com/danielifpb/Psicologando/releases/latest/download/Psicologando.apk">
+    <img src="https://img.shields.io/badge/BAIXAR_APK-PSICOLOGANDO-EEC802?style=for-the-badge&logo=android&logoColor=000000&labelColor=EEC802&color=EEC802" alt="Baixar Psicologando para Android">
   </a>
+</div>
 
->>A instalação é realizada através de um arquivo APK. Como o aplicativo não é distribuído pela Google Play Store, o Android poderá solicitar autorização para instalar aplicativos provenientes do navegador ou gerenciador de arquivos utilizado.
+> A instalação é realizada através de um arquivo APK. Como o aplicativo não é distribuído pela Google Play Store, o Android poderá solicitar autorização para instalar aplicativos provenientes do navegador ou gerenciador de arquivos utilizado.
 
 As versões publicadas do aplicativo podem ser consultadas na página de Releases do projeto.
 
