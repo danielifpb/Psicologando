@@ -1,11 +1,9 @@
 node_modules/
 .expo/
-.expo-shared/
 .expo-export-*/
 .pnpm-store/
-.vscode/
-npm-debug.*
 yarn.lock
+npm-debug.*
 *.jks
 *.p8
 *.p12
@@ -13,6 +11,4 @@ yarn.lock
 *.mobileprovision
 *.orig.*
 web-build/
-
-# macOS
 .DS_Store

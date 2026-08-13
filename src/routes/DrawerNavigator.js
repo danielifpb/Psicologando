@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons  } from '@expo/vector-icons';
 
@@ -15,6 +15,7 @@ import { MotivationPanel } from '../screens/MotivationPanel';
 import { Professionals } from '../screens/Professionals';
 import { Therapies } from '../screens/Therapies';
 import { Diary } from '../screens/Diary';
+import { DiaryEntry } from '../screens/Diary/Entry';
 import { DetailsProf } from '../components/DetailsProf';
 import {AddAlarm} from '../screens/MedicineAlarm/AddAlarm';
 import {EditAlarm} from '../screens/MedicineAlarm/EditAlarm';
@@ -23,10 +24,10 @@ import {EditAlarm} from '../screens/MedicineAlarm/EditAlarm';
 import { Details } from '../screens/Details';
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const SupportScreens = ()=>(
-  <Stack.Navigator headerMode="none" >
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="SupportMaterials" component={SupportMaterials} />
     <Stack.Screen name="Details" component={Details} />
   </Stack.Navigator>
@@ -34,17 +35,24 @@ const SupportScreens = ()=>(
 )
 
 const ProfScreens = ()=>(
-  <Stack.Navigator headerMode="none" >
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="Professionals" component={Professionals} />
     <Stack.Screen name="DetailsProf" component={DetailsProf} />
   </Stack.Navigator>
 )
 
 const AlarmScreens = ()=>(
-  <Stack.Navigator headerMode="none" >
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="MedicineAlarm" component={MedicineAlarm} />
     <Stack.Screen name="AddAlarm" component={AddAlarm} />
     <Stack.Screen name="EditAlarm" component={EditAlarm} />
+  </Stack.Navigator>
+)
+
+const DiaryScreens = ()=>(
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Diary" component={Diary} />
+    <Stack.Screen name="DiaryEntry" component={DiaryEntry} />
   </Stack.Navigator>
 )
 
@@ -56,31 +64,28 @@ export function MyDrawer() {
 
   return (
     <NavigationContainer>
-        <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />} 
-          drawerContentOptions={{ 
-            activeBackgroundColor: secondary, 
-            activeTintColor: primary ,
-            inactiveTintColor: secondary,
-            labelStyle: {
+        <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}
+          screenOptions={{
+            headerShown: false,
+            drawerActiveBackgroundColor: secondary,
+            drawerActiveTintColor: primary,
+            drawerInactiveTintColor: secondary,
+            drawerLabelStyle: {
               fontSize:16,
               fontFamily: theme.fonts.title,
-              
-              
             },
-            itemStyle:{
+            drawerItemStyle:{
               width:'100%',
               marginLeft:0,
               borderRadius:0,
               paddingHorizontal: 5,
-              
             }
-
           }}>
             <Drawer.Screen 
               name="Home" 
               component={Home} 
               options={{title:"Início",drawerIcon: ({focused})=>(
-                <Ionicons  name="ios-home-outline" size={20} color={focused ? primary : secondary} />
+                <Ionicons  name="home-outline" size={20} color={focused ? primary : secondary} />
               )
               
               }}
@@ -132,8 +137,8 @@ export function MyDrawer() {
               }}
             />
             <Drawer.Screen 
-              name="Diary" 
-              component={Diary} 
+              name="DiaryScreens" 
+              component={DiaryScreens} 
               options={{title:"Diário das Emoçoes",drawerIcon: ({focused})=>(
                 <Ionicons  name="book-outline" size={20} color={focused ? primary : secondary} />
               )

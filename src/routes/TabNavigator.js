@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 
 import {Books} from '../screens/SupportMaterials/Books';
 import {Movies} from '../screens/SupportMaterials/Movies';
@@ -16,8 +15,8 @@ export function MyTab() {
   return (
 
     <Tab.Navigator
-        tabBarOptions={{
-            style:{
+        screenOptions={{
+            tabBarStyle:{
                 elevation: 0,
                 shadowOpacity: 0,
                 borderWidth: 0,
@@ -25,18 +24,18 @@ export function MyTab() {
                 
                 
             },
-            activeTintColor: '#FFFFFF',
-            inactiveTintColor: '#8F939A',
-            labelStyle:{
+            tabBarActiveTintColor: '#FFFFFF',
+            tabBarInactiveTintColor: '#8F939A',
+            tabBarLabelStyle:{
                 fontSize:26,
                 fontFamily: theme.fonts.title,
                 textTransform: 'none',
                        
             },
-            indicatorStyle:{
+            tabBarIndicatorStyle:{
                 backgroundColor:'#424345'
             },
-            scrollEnabled:true,
+            tabBarScrollEnabled:true,
             
         }}
     >

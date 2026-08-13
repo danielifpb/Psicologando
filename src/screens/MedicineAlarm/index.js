@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,FlatList,TouchableWithoutFeedback } from 'react-native'; 
+import { Alert, View, Text, FlatList } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native';
 import {Feather, Ionicons} from '@expo/vector-icons';
 import { FAB } from 'react-native-paper';
@@ -8,30 +8,28 @@ import { styles } from './styles';
 
 import {Header} from '../../components/Header';
 import {ListDivider} from '../../components/ListDivider';
-
-const alarms = [
-    {
-        id: '0',
-        title: 'Effexor',
-        hour: '19',
-        minute: '00',
-    },
-    {
-        id: '1',
-        title: 'Relax',
-        hour: '07',
-        minute: '00',
-    },
-    {
-        id: '2',
-        title: 'Diazepam',
-        hour: '23',
-        minute: '00',
-    },
-];
+import { useAlarms } from '../../contexts/AlarmContext';
  
 export function MedicineAlarm() {
     const navigation = useNavigation();
+    const { alarms, loading, deleteAlarm } = useAlarms();
+
+    function confirmDelete(item) {
+        Alert.alert('Excluir alarme', `Deseja excluir o alarme “${item.title}”?`, [
+            { text: 'Cancelar', style: 'cancel' },
+            {
+                text: 'Excluir',
+                style: 'destructive',
+                onPress: async () => {
+                    try {
+                        await deleteAlarm(item.id);
+                    } catch (error) {
+                        Alert.alert('Erro', 'Não foi possível excluir o alarme.');
+                    }
+                },
+            },
+        ]);
+    }
     return (
         <View style={styles.container}>
              <Header 
@@ -42,8 +40,15 @@ export function MedicineAlarm() {
             <FlatList 
                 data={alarms}
                 keyExtractor={item=>item.id}
+                ListEmptyComponent={!loading ? (
+                    <View style={styles.emptyContainer}>
+                        <Ionicons name="alarm-outline" size={48} color="#8F939A" />
+                        <Text style={styles.emptyTitle}>Nenhum alarme cadastrado</Text>
+                        <Text style={styles.emptySubtitle}>Toque no + para adicionar um lembrete.</Text>
+                    </View>
+                ) : null}
                 renderItem={({item})=>
-                    <TouchableWithoutFeedback>
+                    <View>
                         <View style={styles.content} >
                             
                             <Feather  name="clock" size={44} color="black" />
@@ -60,23 +65,21 @@ export function MedicineAlarm() {
 
                                 <View style={styles.icons}>
                                     <Ionicons  
-                                        name="ios-pencil" 
+                                        name="pencil-outline" 
                                         size={30} 
                                         color="black"  
                                         style={{right: 5}} 
                                         onPress={()=> navigation.navigate('EditAlarm', {
-                                            title: item.title, 
-                                            hour: item.hour,
-                                            minute: item.minute,
+                                            alarmId: item.id,
                                         })}
                                     />
-                                    <Ionicons  name="trash-outline" size={30} color="black" onPress={() => console.log(item.minute)} />
+                                    <Ionicons name="trash-outline" size={30} color="black" onPress={() => confirmDelete(item)} />
                                 </View>
                             </View>
                             
                         </View>
                         
-                    </TouchableWithoutFeedback> 
+                    </View>
                 }
                 ItemSeparatorComponent = {()=> <ListDivider />}
                 showsVerticalScrollIndicator={false}

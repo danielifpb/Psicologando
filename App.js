@@ -1,9 +1,12 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {MyDrawer} from './src/routes/DrawerNavigator';
+import { AlarmProvider } from './src/contexts/AlarmContext';
+import { DiaryProvider } from './src/contexts/DiaryContext';
 
 import {Rajdhani_500Medium, Rajdhani_700Bold} from '@expo-google-fonts/rajdhani';
-import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -13,19 +16,26 @@ export default function App() {
   });
 
   if(!fontsLoaded){
-    return <AppLoading/>
+    return null;
   }
   
   return (
-    <>
-      <StatusBar 
-          barStyle="dark-content"
-          backgroundColor="#EEC802"
-          translucent 
-        />
-      <MyDrawer />
-    </>
-    
+    <SafeAreaProvider>
+      <StatusBar
+        style="dark"
+        backgroundColor="#EEC802"
+        translucent={false}
+      />
+      <AlarmProvider>
+        <DiaryProvider>
+          <SafeAreaView
+            style={{ flex: 1, backgroundColor: '#EEC802' }}
+            edges={['top']}
+          >
+            <MyDrawer />
+          </SafeAreaView>
+        </DiaryProvider>
+      </AlarmProvider>
+    </SafeAreaProvider>
   );
 }
-

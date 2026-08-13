@@ -35,6 +35,27 @@ export const styles = StyleSheet.create({
         marginTop: -5,
         marginBottom: 5 
     },
+    emptyContainer:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 32,
+        paddingTop: 100,
+    },
+    emptyTitle:{
+        marginTop: 12,
+        fontFamily: theme.fonts.title,
+        fontSize: 20,
+        color: theme.colors.secondary,
+        textAlign: 'center',
+    },
+    emptySubtitle:{
+        marginTop: 4,
+        fontFamily: theme.fonts.subtitle,
+        fontSize: 16,
+        color: theme.colors.select,
+        textAlign: 'center',
+    },
     fab:{
         position: 'absolute',
         margin: 16,

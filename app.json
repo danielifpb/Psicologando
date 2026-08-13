@@ -20,6 +20,10 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.danielifpb.psicologando",
+      "permissions": [
+        "android.permission.SCHEDULE_EXACT_ALARM"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#EEC802"
@@ -29,6 +33,29 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "Projeto de Expansão IFPB ",
-    "githubUrl": "https://github.com/danielifpb/Psicologando"
+    "githubUrl": "https://github.com/danielifpb/Psicologando",
+    "plugins": [
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permita que o Psicologando acesse suas fotos e vídeos para anexá-los ao diário.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#EEC802",
+          "defaultChannel": "medicine-alarms"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a5b8a9fa-a7e3-41da-8817-7f109b6e3e18"
+      }
+    }
   }
 }

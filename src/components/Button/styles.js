@@ -12,6 +12,9 @@ export const styles = StyleSheet.create({
         
         
     },
+    disabled:{
+        opacity: 0.55,
+    },
     titleButton:{
         flex: 1,
         color: theme.colors.secondary,

@@ -86,7 +86,7 @@ export function Podcasts() {
                         <Text 
                             style={styles.title} 
                             onPress={()=> navigation.navigate('Details', {
-                                type: type,
+                                    type: typePod,
                                 name: item.name, 
                                 image: item.image,
                                 title: item.title,
